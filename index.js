@@ -27,7 +27,8 @@ const COLORS = {
   vite: "\x1b[38;5;205m",  // Pink/Purple
   java: "\x1b[38;5;208m",  // Orange
   node: "\x1b[32m",        // Green
-  gray: "\x1b[90m"         // Gray for the divider
+  gray: "\x1b[90m",        // Gray for the divider
+  angular: "\x1b[38;5;196m", // Red Angular       
 };
 
 /**
@@ -45,8 +46,9 @@ function getProjectStack(folderPath) {
       const deps = { ...pkg.dependencies, ...pkg.devDependencies };
 
       let label = "";
-      if (deps.react) label += `${COLORS.react}React${COLORS.reset} `;
-      if (deps.vite) label += `${COLORS.vite}Vite${COLORS.reset}`;
+      if (deps.react) label += `${COLORS.react}React${COLORS.reset}  `;
+      if (deps.vite) label += `${COLORS.vite}Vite${COLORS.reset} `;
+      if(deps['@angular/core']){ label += `${COLORS.angular}Angular${COLORS.reset} `;}
 
       return label.trim() || `${COLORS.node}Node.js${COLORS.reset}`;
     }
