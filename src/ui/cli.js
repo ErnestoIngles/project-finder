@@ -1,35 +1,13 @@
 import os from 'node:os';
 import * as p from '@clack/prompts';
+import { colorizeType, COLORS } from './formatter.js';
 
 const HOME = os.homedir();
 
-const COLORS = {
-  cyan: '\x1b[36m',
-  reset: '\x1b[0m',
-  react: '\x1b[38;5;81m',   // Sky blue
-  vite: '\x1b[38;5;205m',  // Pink/Purple
-  java: '\x1b[38;5;208m',  // Orange
-  node: '\x1b[32m',        // Green
-  gray: '\x1b[90m',        // Gray for divider
-  angular: '\x1b[38;5;196m' // Red Angular
-};
-
-function colorizeType(typeStr) {
-  if (!typeStr) return `${COLORS.gray}Generic${COLORS.reset}`;
-
-  let formatted = typeStr;
-
-  if (formatted.includes('React')) formatted = formatted.replace('React', `${COLORS.react}React${COLORS.reset}`);
-  if (formatted.includes('Vite')) formatted = formatted.replace('Vite', `${COLORS.vite}Vite${COLORS.reset}`);
-  if (formatted.includes('Angular')) formatted = formatted.replace('Angular', `${COLORS.angular}Angular${COLORS.reset}`);
-  if (formatted.includes('Java')) formatted = formatted.replace('Java', `${COLORS.java}Java${COLORS.reset}`);
-  if (formatted.includes('Node.js') || formatted.includes('Express')) formatted = formatted.replace('Node.js', `${COLORS.node}Node.js${COLORS.reset}`);
-
-  return formatted;
-}
-
 /**
- * Muestra la intro del sistema
+ * Renders the CLI header banner
+ * @param {string} version - Current app version
+ * @param {boolean} isDemo - Whether demo mode is active
  */
 export function renderHeader(version, isDemo = false) {
   console.clear();
@@ -41,9 +19,9 @@ export function renderHeader(version, isDemo = false) {
 }
 
 /**
- * Renderiza la lista de proyectos y retorna la ruta seleccionada por el usuario
- * @param {Array<{name: string, type: string, path: string}>} projects 
- * @returns {Promise<string|null>} Ruta elegida o null si canceló
+ * Displays the project selection interactive prompt
+ * @param {Array<{name: string, type: string, path: string}>} projects - Project items list
+ * @returns {Promise<string|null>} Selected project path or null if cancelled
  */
 export async function promptProjectSelection(projects) {
   if (!projects || projects.length === 0) {
@@ -76,7 +54,8 @@ export async function promptProjectSelection(projects) {
 }
 
 /**
- * Muestra el mensaje de éxito final
+ * Renders success confirmation message after copying command
+ * @param {string} selectedPath - Target path
  */
 export function renderSuccessMessage(selectedPath) {
   const displayPath = selectedPath.replace(HOME, '~');
