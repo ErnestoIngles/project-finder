@@ -15,7 +15,7 @@ export function getAppVersion () {
     const packageJsonPath = path.resolve( __dirname, '../../package.json' );
     const pkg = JSON.parse( fs.readFileSync( packageJsonPath, 'utf-8' ) );
 
-    return pkg.version;
+    return `v${pkg.version}`;
   } catch
   {
     return 'VERSION NOT FOUND';
