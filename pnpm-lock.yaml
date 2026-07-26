@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  project-finder: 'link:'
+
 importers:
 
   .:
@@ -14,6 +17,9 @@ importers:
       clipboardy:
         specifier: ^5.3.1
         version: 5.3.2
+      project-finder:
+        specifier: 'link:'
+        version: 'link:'
 
 packages:
 

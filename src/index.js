@@ -4,14 +4,17 @@
  * @file index.js
  * @description Terminal tool to scan, identify, and copy navigation commands for projects.
  * @author ErnestoIngles
- * @version 1.3.1
  */
 
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import * as p from '@clack/prompts';
-import clipboard from 'clipboardy'
+import { getAppVersion } from './utils/version.js';
+
+/** @constant {string} APP_VERSION - Base path where development projects are located */
+const APP_VERSION = getAppVersion();
+
 
 /** @constant {string} HOME - Current user's home directory path */
 const HOME = os.homedir();
@@ -74,7 +77,7 @@ function scanProjects() {
     const elements = fs.readdirSync(PROJECTS_DIR);
     return elements
       .map(element => {
-       const fullPath = path.join(PROJECTS_DIR, element);
+        const fullPath = path.join(PROJECTS_DIR, element);
         return {
           name: element,
           path: fullPath,
@@ -94,7 +97,7 @@ function scanProjects() {
 async function main() {
   console.clear();
 
-  p.intro(`🚀 Project Finder - Terminal Navigator`);
+  p.intro(`🚀 Project Finder - Terminal Navigator ${APP_VERSION}`);
 
   const projectList = scanProjects();
 
