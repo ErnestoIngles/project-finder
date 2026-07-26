@@ -2,7 +2,7 @@
 
 **Project Finder** is an interactive terminal utility designed to streamline the developer workflow. It scans, identifies technology stacks, and enables instant navigation between projects in Linux/WSL2 environments.
 
-![Version](https://img.shields.io/badge/version-1.3.0-cyan)
+![Version](https://img.shields.io/badge/version-1.3.1-cyan)
 ![Node.js](https://img.shields.io/badge/Node.js-20.x-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
