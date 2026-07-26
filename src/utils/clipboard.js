@@ -1,9 +1,9 @@
 import clipboard from 'clipboardy';
 
 /**
- * Copia un texto o comando al portapapeles del sistema operativo
- * @param {string} text - Texto a copiar
- * @returns {boolean} True si se copió con éxito
+ * Copies text or a command to the operating system's clipboard
+ * @param {string} text - Text to copy
+ * @returns {boolean} True if copied successfully
  */
 export function copyToClipboard(text) {
   try {
