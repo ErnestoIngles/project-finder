@@ -5,11 +5,9 @@
  * @description Terminal tool to scan, identify, and copy navigation commands for projects.
  * @author ErnestoIngles
  */
-import { getAppVersion } from './utils/version.js';
-import { copyToClipboard } from './utils/clipboard.js';
-import { scanProjects } from './core/scanner.js';
-import { MOCK_PROJECTS } from './core/demoData.js';
-import { renderHeader, promptProjectSelection, renderSuccessMessage } from './ui/cli.js';
+import { getAppVersion, copyToClipboard } from './utils/index.js';
+import { scanProjects, MOCK_PROJECTS } from './core/index.js';
+import { renderHeader, promptProjectSelection, renderSuccessMessage } from './ui/index.js';
 
 /**
  * Main execution flow of the CLI tool.
