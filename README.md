@@ -2,7 +2,7 @@
 
 **Project Finder** is an interactive terminal utility designed to streamline the developer workflow. It scans, identifies technology stacks, and enables instant navigation between projects in Linux/WSL2 environments.
 
-![Version](https://img.shields.io/badge/version-1.2.0-cyan)
+![Version](https://img.shields.io/badge/version-1.3.0-cyan)
 ![Node.js](https://img.shields.io/badge/Node.js-20.x-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
@@ -25,14 +25,14 @@
 
 ### 1. Clone the repository
 ```bash
-  git clone [https://github.com/YOUR_USERNAME/project-finder.git](https://github.com/YOUR_USERNAME/project-finder.git)
+  git clone [https://github.com/ErnestoIngles/project-finder.git](https://github.com/ErnestoIngles/project-finder.git)
   cd project-finder
 ```
 
 ### 2. Install dependencies and set up globally
 ```bash
-  npm install
-  npm install -g .
+  pnpm install
+  pnpm install -g .
 ```
 
 ### 3. Run it!

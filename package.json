@@ -1,18 +1,25 @@
 {
   "name": "project-finder",
-  "version": "1.0.0",
+  "version": "1.3.0",
+  "description": "Interactive CLI tool to scan, identify tech stacks, and quickly navigate local development projects in Linux/WSL2 environments.",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "pf": "./index.js" 
+    "pf": "./index.js"
   },
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
+  "keywords": [
+    "cli",
+    "developer-tools",
+    "wsl2",
+    "productivity",
+    "project-manager",
+    "terminal"
+  ],
   "author": "ErnestoIngles",
-  "license": "ISC",
-  "description": "",
+  "license": "MIT",
   "dependencies": {
     "@clack/prompts": "^1.4.0",
     "clipboardy": "^5.3.1"
