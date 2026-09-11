@@ -60,5 +60,4 @@ export async function promptProjectSelection(projects) {
 export function renderSuccessMessage(selectedPath) {
   const displayPath = selectedPath.replace(HOME, '~');
   p.outro(`✅ Command ${COLORS.cyan}cd "${displayPath}"${COLORS.reset} copied!`);
-  console.log(`\n  👉 Just press Ctrl+V (or Right Click) and Enter to navigate.\n`);
 }
