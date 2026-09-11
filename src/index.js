@@ -7,20 +7,23 @@
  */
 import { getAppVersion, copyToClipboard } from './utils/index.js';
 import { scanProjects, MOCK_PROJECTS } from './core/index.js';
-import { renderHeader, promptProjectSelection, renderSuccessMessage } from './ui/index.js';
+import { renderHeader, promptProjectSelection, renderSuccessMessage, 
+  redirectUiToStderr, emitData } from './ui/index.js';
 
 /**
  * Main execution flow of the CLI tool.
  * @async
  */
 async function main() {
+
+  redirectUiToStderr();
+
   const version = getAppVersion();
   const isDemo = process.argv.includes('demo') || process.argv.includes('--demo');
 
   renderHeader(version, isDemo);
 
   const projects = isDemo ? MOCK_PROJECTS : await scanProjects();
-
   const selectedPath = await promptProjectSelection(projects);
 
   if (!selectedPath) {
@@ -31,6 +34,9 @@ async function main() {
   copyToClipboard(command);
 
   renderSuccessMessage(selectedPath);
+
+  emitData(selectedPath);
+  process.exit(0);
 }
 
 main().catch((err) => {
